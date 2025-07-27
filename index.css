@@ -28,3 +28,39 @@
   cursor: pointer;
   color: gray;
 }
+
+.card-img {
+    width: 200px;
+    height: 100px;
+}
+
+.cart-container {
+   width: 100%;
+   margin-top: 10px;
+}
+
+.card-details {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+
+.card-item{
+    border: 1px solid black;
+    background: #f0f0f0;
+}
+
+.card-item:hover{
+    border: 1px solid gray;
+    background: aliceblue;
+}
+
+.btn-rating{
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    background: peru;
+    border: 1px solid black;
+    cursor: pointer;
+    border-radius: 14px !important;
+}

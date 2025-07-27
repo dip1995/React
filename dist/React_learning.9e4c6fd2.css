@@ -29,4 +29,40 @@
   padding: 10px;
   list-style: none;
 }
+
+.card-img {
+  width: 200px;
+  height: 100px;
+}
+
+.cart-container {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card-details {
+  flex-wrap: wrap;
+  gap: 10px;
+  display: flex;
+}
+
+.card-item {
+  background: #f0f0f0;
+  border: 1px solid #000;
+}
+
+.card-item:hover {
+  background: #f0f8ff;
+  border: 1px solid gray;
+}
+
+.btn-rating {
+  cursor: pointer;
+  background: peru;
+  border: 1px solid #000;
+  width: 100px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 14px !important;
+}
 /*# sourceMappingURL=React_learning.9e4c6fd2.css.map */
