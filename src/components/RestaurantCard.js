@@ -8,13 +8,13 @@ const RestaurantCard = (props) => {
         <img
         className="card-img"
         alt="res-logo"
-        src="https://picsum.photos/id/1062/800/600"
+        src={CDN_URL + cloudinaryImageId}
       />
       </div>
       <h2 className="card-title">{name}</h2>
       <p className="card-cuisine">{cuisines.join(", ")}</p>
       <p className="card-rating">Rating: {avgRating}</p>
-      <p className="card-review">Review: ₹{costForTwo}</p>
+      <p className="card-review">Review: {costForTwo}</p>
     </div>
   );
 };

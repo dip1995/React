@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npx parcel index.html",
-    "build":"npx parcel build index.html",
+    "build": "npx parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
-
   },
   "keywords": [],
   "author": "",
@@ -14,6 +13,8 @@
   "dependencies": {
     "parcel": "^2.15.4",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router": "^6.30.1",
+    "react-router-dom": "^6.30.1"
   }
 }

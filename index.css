@@ -37,6 +37,7 @@
 .cart-container {
    width: 100%;
    margin-top: 10px;
+   border-radius: 14px !important
 }
 
 .card-details {
@@ -45,8 +46,17 @@
    gap: 10px;
 }
 
+.card-cuisine {
+  white-space: normal;   /* Allows text to wrap */
+  word-wrap: break-word; /* Breaks long words if needed */
+  max-width: 180px;      /* Keep it inside the card */
+  line-height: 1.4;      /* Better readability */
+}
+
+
 .card-item{
-    border: 1px solid black;
+    border-radius: 14px !important;
+    overflow: hidden;
     background: #f0f0f0;
 }
 

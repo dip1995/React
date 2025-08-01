@@ -12,7 +12,7 @@ const Body = () => {
     }, []);
 
    const fetchRestaurants = async () => {
-      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.7195687&lng=75.8577258&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9628669&lng=77.57750899999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
       const json = await data.json();
       console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
       setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -29,6 +29,7 @@ const Body = () => {
                <button className="search-btn" onClick={() => {
                   console.log(searchText);
                    const filteredList = ListOfRestaurants.filter((item) => item.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                     console.log(filteredList);
                    setCopyListOfRestaurants(filteredList);                  
                }}>Search</button>
             </div>
