@@ -3,26 +3,16 @@ import { MENU_API } from "../utils/constant";
 import { useParams } from "react-router-dom";
 import Shimmer from "./shimmer";
 import { CDN_URL } from "../utils/constant";
+import useRestaurantCard from "../utils/useRestaurantCard";
 
 
 const RestaurantMenu = () => {
- const [ResInfo, setResInfo] = useState([]);
- const [ResMenu, setResMenu] = useState([]);
+//  const [ResInfo, setResInfo] = useState([]);
+//  const [ResMenu, setResMenu] = useState([]);
 
  const { resId } = useParams();
- useEffect(() => {
-    fetchRestaurantMenu();
- }, []);
-
- const fetchRestaurantMenu = async () => {
-    const json = await fetch(MENU_API+resId);
-
-    // const json = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9628669&lng=77.57750899999999&restaurantId=426730&catalog_qa=undefined&submitAction=ENTER");
-    const data = await json.json();
-    setResInfo(data?.data?.cards[2]?.card?.card?.info);
-    setResMenu(data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel);
-    console.log(ResMenu)
- }
+ const data = useRestaurantCard(resId);
+ const {ResInfo,ResMenu} = data;
 
 const { name, cuisines, costForTwoMessage } = ResInfo; 
 
