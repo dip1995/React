@@ -13,7 +13,7 @@
 // import React from "react";
 import ReactDOM from "react-dom/client";
 import AppLayout from "./components/AppLayout";
-import About from "./components/About";
+// import About from "./components/About";
 import Error from "./components/Error";
 import Body from "./components/Body";
 import Contact from "./components/Contact";
@@ -21,10 +21,12 @@ import Cart from "./components/Cart";
 import RestaurantMenu from "./components/RestaurantMenu";
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Grocery from "./components/Grocery";
+
+// import Grocery from "./components/Grocery";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const About = lazy(() => import('./components/About'));
+const Grocery = lazy(() => import('./components/Grocery'));
 
 const appRouter = createBrowserRouter([
   {
