@@ -47,7 +47,9 @@ const Body = () => {
               CopyListOfRestaurants.map((restaurant) => {
                 return <Link key={restaurant?.info?.id} to={'/restaurant/'+restaurant?.info?.id}>
                   {
-                     restaurant?.data?.promoted ? <RestaurantCardWithHOC resData={restaurant?.info} /> : <RestaurantCard resData={restaurant?.info}/>
+                     restaurant?.data?.promoted ?
+                      <RestaurantCardWithHOC resData={restaurant?.info} /> :
+                     <RestaurantCard resData={restaurant?.info}/>
                   }
                   </Link>
               })

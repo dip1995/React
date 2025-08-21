@@ -2,9 +2,11 @@ import ShowListItems from "./ShowListItems";
 
 const ListItems = ({cardInfo,showIndex,setShowIndex}) => {
     const { title } = cardInfo;
-    handleClick = () => {
+    
+    const handleClick = () => {
      setShowIndex();
     }
+
     return (
         <div>
       {/* Header */}

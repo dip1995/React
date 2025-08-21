@@ -1,5 +1,6 @@
 import {Component} from 'react';
 import UserClass from './UserClass';
+import UserContext from '../utils/UserContext';
 
 class About extends Component{
 
@@ -32,7 +33,15 @@ class About extends Component{
             <h1>{title}</h1>
             <p>{description}</p>
             {/* <p>{counter}</p> */}
+            {/* in class no hook so we use consumer */}
+            <UserContext.Consumer> 
+                {
+                    ({loggedInUser}) => <h1 className="font-bold text-lg">{loggedInUser}</h1>
+                }
+            </UserContext.Consumer>
             <UserClass name={this.state.title} />
+
+
             {/* <UserClass name={'Second'} /> */}
             {/* <UserClass name={'Third'} /> */}
             {/* <button type="button" onClick={() =>  this.setState({
