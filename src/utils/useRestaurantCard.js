@@ -12,7 +12,8 @@ const useRestaurantCard = (resId) => {
     const json = await fetch(MENU_API+resId);
     const data = await json.json();
     setResInfo(data?.data?.cards[2]?.card?.card?.info);
-    setResMenu(data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel);
+    setResMenu(data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
  }
     return {ResInfo:ResInfo,ResMenu:ResMenu};
 }

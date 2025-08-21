@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 import { LOGO_URL } from "../utils/constant";
 const Header = () => {
 return (
-    <div className="header-container">
+    <div className="flex justify-between items-center bg-pink-50 shadow-sm">
         <div className="logo-container">
             <div className="logo">
                 <img
-                className="logo-image"
+                className="w-28"
                 src={LOGO_URL} alt="logo" />
                 </div>
         </div>
         <div className="nav-items">
-            <ul className="nav-list"> 
+            <ul className="flex flex-row gap-4 px-2"> 
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/About">About</Link> </li>
                 <li><Link to="/Contact">Contact</Link></li>

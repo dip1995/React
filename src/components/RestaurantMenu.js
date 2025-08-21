@@ -4,42 +4,52 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./shimmer";
 import { CDN_URL } from "../utils/constant";
 import useRestaurantCard from "../utils/useRestaurantCard";
-
+import ListItems from "./ListItems";
 
 const RestaurantMenu = () => {
-//  const [ResInfo, setResInfo] = useState([]);
-//  const [ResMenu, setResMenu] = useState([]);
+  //  const [ResInfo, setResInfo] = useState([]);
+  //  const [ResMenu, setResMenu] = useState([]);
+  const [showIndex,setShowIndex] = useState(null);
 
- const { resId } = useParams();
- const data = useRestaurantCard(resId);
- const {ResInfo,ResMenu} = data;
+  const { resId } = useParams();
+  const data = useRestaurantCard(resId);
+  const { ResInfo, ResMenu } = data;
+  const { name, cuisines, costForTwoMessage } = ResInfo;
+  const categories = ResMenu.filter(
+    (item) =>
+      item.card.card["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  //   console.log(filteredMenu);
 
-const { name, cuisines, costForTwoMessage } = ResInfo; 
+  //  if (!ResMenu) return <Shimmer />;
+  if (ResMenu.length === 0) return <Shimmer />;
 
-//  if (!ResMenu) return <Shimmer />;
- if (ResMenu.length === 0) return <Shimmer />;
-
- return (
-    <div className="restaurant-menu">
-        <h1>{name}</h1>
-        <h2>{cuisines.join(", ")}</h2>
-        <h3>{costForTwoMessage}</h3>
-        <div className="restaurant-menu-items">
-        {
-            ResMenu.map((item) => {
-             return <div className="restaurant-card" key={item.dish.info.id}>
-             <h4>{item.dish.info.name}</h4>
-             <img className="res-image" src={CDN_URL+item.dish.info.imageId} alt={item.dish.info.name} />
-             <p>{item.dish.info.category}</p>
-             {/* <p>{item.dish.info.description}</p> */}
-             <p>Rs {item.dish.info.finalPrice/100 || item.dish.info.price/100}</p>
-             </div>
-            })
-        }
-        </div>
+  return (
+     <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+      <p className="font-bold text-lg">
+        {cuisines.join(", ")} - {costForTwoMessage}
+      </p>
+      {/* categories accordions */}
+      {categories.map((category, index) => (
+        // controlled component
+        <ListItems
+          key={category?.card?.card.title}
+          cardInfo={category?.card?.card}
+          showIndex={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)} 
+        />
+      ))}
     </div>
- )
-
-}
+    // <div className="flex items-center justify-center flex-col">
+    //   {filteredMenu.map((item) => {
+    //     return (
+    //       <ListItems key={item.card.card.title} cardInfo={item.card.card} />
+    //     );
+    //   })}
+    // </div>
+  );
+};
 
 export default RestaurantMenu;
