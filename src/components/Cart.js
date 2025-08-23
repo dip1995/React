@@ -1,8 +1,13 @@
+import { useSelector } from "react-redux";
+import ShowListItems from "./ShowListItems";
+
 const Cart = () => {
+ 
+    const selectedItems = useSelector((store) => store.cart.items);
+
     return (
         <div className="cart-container">
-            <h1>Your Cart</h1>
-            <p>Items in your cart will be displayed here.</p>
+        <ShowListItems itemCards={selectedItems}/> 
         </div>
     );
 }
